@@ -45,9 +45,25 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  /* AIVideoGen Futuristic Theme */
+  --background: #0F0F12;
+  --foreground: #FFFFFF;
+  --card: #16161B;
+  --card-foreground: #FFFFFF;
+  --popover: #16161B;
+  --popover-foreground: #FFFFFF;
+  --primary: #7C3AED;
+  --primary-foreground: #FFFFFF;
+  --secondary: #16161B;
+  --secondary-foreground: #FFFFFF;
+  --muted: #16161B;
+  --muted-foreground: #A5A5A7;
+  --accent: #00E7FF;
+  --accent-foreground: #0F0F12;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(124, 58, 237, 0.2);
+  --input: rgba(124, 58, 237, 0.3);
+  --ring: #7C3AED;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -119,4 +135,31 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* AIVideoGen Custom Styles */
+.glow-violet {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4), 0 0 40px rgba(124, 58, 237, 0.2);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 231, 255, 0.6), 0 0 40px rgba(0, 231, 255, 0.3);
+}
+
+.holographic-gradient {
+  background: linear-gradient(90deg, #7C3AED, #00E7FF);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #7C3AED, #00E7FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
 }
