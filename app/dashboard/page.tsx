@@ -421,10 +421,10 @@ export default function Dashboard() {
           })}
 
           {/* Premium Upgrade Button */}
-          <button className="w-full mt-4 px-4 py-3 bg-linear-to-r from-[#FFD700] to-[#FFA500] rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+          <Link href="/pricing" className="w-full mt-4 px-4 py-3 bg-linear-to-r from-[#FFD700] to-[#FFA500] rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
             <Crown className="w-5 h-5" />
             {t.upgradeToPro}
-          </button>
+          </Link>
         </nav>
 
         {/* User Section */}
