@@ -276,7 +276,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Preview Studio Section - Auth-Aware */}
+      {/* Preview Studio Section - Open for All */}
       <section className="container mx-auto px-4 py-32 relative">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -287,115 +287,107 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h3 className="text-4xl md:text-5xl font-bold mb-4">
-              <SignedOut>
-                See <span className="text-gradient">AIVideoGen</span> in Action
-              </SignedOut>
-              <SignedIn>
-                Your <span className="text-gradient">Creative Studio</span>
-              </SignedIn>
+              Try <span className="text-gradient">AIVideoGen</span> Studio
             </h3>
             <p className="text-xl text-[#A5A5A7]">
-              <SignedOut>
-                Create an account to start generating professional videos
-              </SignedOut>
-              <SignedIn>
-                Generate, manage, and share your AI-powered videos
-              </SignedIn>
+              Experience the power of AI video generation - Start creating now
             </p>
           </motion.div>
 
-          {/* SIGNED OUT - Preview Mode */}
-          <SignedOut>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
-            >
-              {/* Disabled Prompt Input */}
-              <div className="relative p-8 bg-[#16161B] rounded-2xl border border-[#7C3AED]/20">
-                <div className="absolute inset-0 bg-linear-to-br from-[#7C3AED]/5 to-[#00E7FF]/5 rounded-2xl" />
-                <div className="relative z-10">
-                  <label className="block text-sm font-medium mb-3 text-[#A5A5A7]">
-                    Video Prompt
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      disabled
-                      placeholder="A cinematic sunset over mountains with flying birds..."
-                      className="w-full px-6 py-4 bg-[#0F0F12] border border-[#7C3AED]/30 rounded-xl text-white placeholder:text-[#A5A5A7]/50 cursor-not-allowed opacity-60"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-[#0F0F12]/80 backdrop-blur-sm rounded-xl">
-                      <div className="text-center space-y-3">
-                        <svg className="w-12 h-12 mx-auto text-[#7C3AED]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          {/* Interactive Studio - Always Open */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
+          >
+            {/* Prompt Input - Always Active */}
+            <div className="p-8 bg-[#16161B] rounded-2xl border border-[#7C3AED]/20 hover:border-[#00E7FF]/50 transition-colors">
+              <label className="block text-sm font-medium mb-3 text-[#A5A5A7]">
+                Describe Your Video
+              </label>
+              <div className="space-y-4">
+                <textarea
+                  placeholder="A cinematic sunset over mountains with flying birds, 4K quality, dramatic lighting..."
+                  className="w-full px-6 py-4 bg-[#0F0F12] border border-[#7C3AED]/30 rounded-xl text-white placeholder:text-[#A5A5A7]/70 focus:border-[#00E7FF] focus:outline-none focus:ring-2 focus:ring-[#00E7FF]/20 transition-all resize-none"
+                  rows={4}
+                />
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-[#A5A5A7]">Tip: Be specific about style, mood, and details</span>
+                  
+                  {/* Generate Button - Redirects to Sign In or Dashboard */}
+                  <SignedOut>
+                    <Link href="/sign-in">
+                      <Button className="holographic-gradient glow-cyan hover:scale-105 transition-transform">
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <p className="text-sm font-medium text-white">Sign in to start generating videos</p>
-                        <Link href="/sign-up">
-                          <Button className="holographic-gradient glow-cyan">
-                            Create Free Account
-                          </Button>
-                        </Link>
+                        Generate Video
+                      </Button>
+                    </Link>
+                  </SignedOut>
+                  
+                  <SignedIn>
+                    <Link href="/dashboard">
+                      <Button className="holographic-gradient glow-cyan hover:scale-105 transition-transform">
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Generate Video
+                      </Button>
+                    </Link>
+                  </SignedIn>
+                </div>
+              </div>
+            </div>
+
+            {/* Sample Videos Grid - Always Visible */}
+            <div>
+              <h4 className="text-2xl font-bold mb-6 text-center">Community Creations</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { title: "Sunset Journey", duration: "0:45", views: "1.2K" },
+                  { title: "Future City", duration: "1:20", views: "2.8K" },
+                  { title: "Ocean Depths", duration: "0:58", views: "954" },
+                ].map((video, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 * idx }}
+                    className="group relative bg-[#16161B] rounded-xl border border-[#7C3AED]/20 overflow-hidden hover:border-[#00E7FF]/50 transition-all cursor-pointer"
+                  >
+                    {/* Video Thumbnail */}
+                    <div className="aspect-video bg-linear-to-br from-[#7C3AED]/20 to-[#00E7FF]/20 relative">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <svg className="w-16 h-16 text-[#7C3AED]/50 group-hover:text-[#00E7FF]/70 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                        </svg>
+                      </div>
+                      {/* Watermark */}
+                      <div className="absolute bottom-2 right-2 px-2 py-1 bg-[#0F0F12]/80 backdrop-blur-sm rounded text-xs text-[#A5A5A7]">
+                        Created with AIVideoGen
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Sample Videos Grid */}
-              <div>
-                <h4 className="text-2xl font-bold mb-6 text-center">Community Creations</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[
-                    { title: "Sunset Journey", duration: "0:45", views: "1.2K" },
-                    { title: "Future City", duration: "1:20", views: "2.8K" },
-                    { title: "Ocean Depths", duration: "0:58", views: "954" },
-                  ].map((video, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 * idx }}
-                      className="group relative bg-[#16161B] rounded-xl border border-[#7C3AED]/20 overflow-hidden cursor-not-allowed"
-                    >
-                      {/* Video Thumbnail */}
-                      <div className="aspect-video bg-linear-to-br from-[#7C3AED]/20 to-[#00E7FF]/20 relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <svg className="w-16 h-16 text-[#7C3AED]/50" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                          </svg>
-                        </div>
-                        {/* Watermark */}
-                        <div className="absolute bottom-2 right-2 px-2 py-1 bg-[#0F0F12]/80 backdrop-blur-sm rounded text-xs text-[#A5A5A7]">
-                          Created with AIVideoGen
-                        </div>
-                        {/* Locked Overlay */}
-                        <div className="absolute inset-0 bg-[#0F0F12]/60 backdrop-blur-[2px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="text-center">
-                            <svg className="w-8 h-8 mx-auto mb-2 text-[#00E7FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                            <p className="text-xs text-white">Sign in to view</p>
-                          </div>
-                        </div>
+                    {/* Video Info */}
+                    <div className="p-4">
+                      <h5 className="font-semibold mb-2">{video.title}</h5>
+                      <div className="flex items-center justify-between text-sm text-[#A5A5A7]">
+                        <span>{video.duration}</span>
+                        <span>{video.views} views</span>
                       </div>
-                      {/* Video Info */}
-                      <div className="p-4">
-                        <h5 className="font-semibold mb-2">{video.title}</h5>
-                        <div className="flex items-center justify-between text-sm text-[#A5A5A7]">
-                          <span>{video.duration}</span>
-                          <span>{video.views} views</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
+            </div>
 
-              {/* CTA Banner */}
+            {/* Additional Info Banner */}
+            <SignedOut>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -403,129 +395,42 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-center p-8 bg-[#16161B] rounded-2xl border border-[#7C3AED]/30"
               >
-                <h4 className="text-2xl font-bold mb-3">Ready to Create Your Own?</h4>
-                <p className="text-[#A5A5A7] mb-6">Join thousands of creators generating stunning videos with AI</p>
-                <Link href="/sign-up">
-                  <Button size="lg" className="holographic-gradient glow-cyan hover:scale-105 transition-transform">
-                    Create Free Account to Generate Videos →
-                  </Button>
-                </Link>
-              </motion.div>
-            </motion.div>
-          </SignedOut>
-
-          {/* SIGNED IN - Interactive Studio */}
-          <SignedIn>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
-            >
-              {/* Active Prompt Input */}
-              <div className="p-8 bg-[#16161B] rounded-2xl border border-[#7C3AED]/20 hover:border-[#00E7FF]/50 transition-colors">
-                <label className="block text-sm font-medium mb-3 text-[#A5A5A7]">
-                  Describe Your Video
-                </label>
-                <div className="space-y-4">
-                  <textarea
-                    placeholder="A cinematic sunset over mountains with flying birds, 4K quality, dramatic lighting..."
-                    className="w-full px-6 py-4 bg-[#0F0F12] border border-[#7C3AED]/30 rounded-xl text-white placeholder:text-[#A5A5A7]/70 focus:border-[#00E7FF] focus:outline-none focus:ring-2 focus:ring-[#00E7FF]/20 transition-all resize-none"
-                    rows={4}
-                  />
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-[#A5A5A7]">Tip: Be specific about style, mood, and details</span>
-                    <Button className="holographic-gradient glow-cyan hover:scale-105 transition-transform">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Generate Video
+                <h4 className="text-2xl font-bold mb-3">Ready to Generate Your Video?</h4>
+                <p className="text-[#A5A5A7] mb-6">Sign in to create, export, and share your AI-generated videos with friends on social media</p>
+                <div className="flex items-center justify-center gap-4">
+                  <Link href="/sign-in">
+                    <Button size="lg" variant="outline" className="border-[#7C3AED] hover:bg-[#7C3AED]/10">
+                      Sign In
                     </Button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Your Creations */}
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <h4 className="text-2xl font-bold">Your Creations</h4>
-                  <Link href="/dashboard">
-                    <Button variant="ghost" className="hover:bg-[#7C3AED]/10 hover:text-[#00E7FF]">
-                      View All in Dashboard →
+                  </Link>
+                  <Link href="/sign-up">
+                    <Button size="lg" className="holographic-gradient glow-cyan hover:scale-105 transition-transform">
+                      Create Free Account →
                     </Button>
                   </Link>
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[
-                    { title: "My First Video", status: "Complete", date: "2 hours ago" },
-                    { title: "Product Demo", status: "Rendering", date: "Just now", progress: 65 },
-                    { title: "Tutorial Intro", status: "Complete", date: "Yesterday" },
-                  ].map((video, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 * idx }}
-                      whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(124, 58, 237, 0.3)" }}
-                      className="group bg-[#16161B] rounded-xl border border-[#7C3AED]/20 hover:border-[#00E7FF]/50 overflow-hidden transition-all cursor-pointer"
-                    >
-                      {/* Video Thumbnail */}
-                      <div className="aspect-video bg-linear-to-br from-[#7C3AED]/20 to-[#00E7FF]/20 relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          {video.status === "Rendering" ? (
-                            <div className="text-center space-y-2">
-                              <svg className="w-12 h-12 text-[#00E7FF] animate-spin mx-auto" fill="none" viewBox="0 0 24 24">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                              </svg>
-                              <p className="text-sm text-[#00E7FF]">{video.progress}%</p>
-                            </div>
-                          ) : (
-                            <svg className="w-16 h-16 text-[#7C3AED]/50 group-hover:text-[#00E7FF] transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                            </svg>
-                          )}
-                        </div>
-                        {/* Status Badge */}
-                        <div className={`absolute top-2 left-2 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
-                          video.status === "Complete" 
-                            ? "bg-[#00E7FF]/20 text-[#00E7FF] border border-[#00E7FF]/30" 
-                            : "bg-[#7C3AED]/20 text-[#7C3AED] border border-[#7C3AED]/30"
-                        }`}>
-                          {video.status}
-                        </div>
-                      </div>
-                      {/* Video Info & Actions */}
-                      <div className="p-4">
-                        <h5 className="font-semibold mb-2">{video.title}</h5>
-                        <p className="text-sm text-[#A5A5A7] mb-4">{video.date}</p>
-                        {video.status === "Complete" && (
-                          <div className="flex gap-2">
-                            <Button size="sm" variant="outline" className="flex-1 border-[#7C3AED]/50 hover:border-[#00E7FF] hover:bg-[#00E7FF]/10">
-                              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                              </svg>
-                              View
-                            </Button>
-                            <Button size="sm" variant="outline" className="border-[#7C3AED]/50 hover:border-[#00E7FF] hover:bg-[#00E7FF]/10">
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                              </svg>
-                            </Button>
-                          </div>
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </SignedIn>
+              </motion.div>
+            </SignedOut>
+
+            {/* Logged In Users - Quick Dashboard Access */}
+            <SignedIn>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-center p-8 bg-[#16161B] rounded-2xl border border-[#00E7FF]/30"
+              >
+                <h4 className="text-2xl font-bold mb-3">Go to Your Dashboard</h4>
+                <p className="text-[#A5A5A7] mb-6">Manage your videos, export, and share with friends on social media</p>
+                <Link href="/dashboard">
+                  <Button size="lg" className="holographic-gradient glow-cyan hover:scale-105 transition-transform">
+                    Open Dashboard →
+                  </Button>
+                </Link>
+              </motion.div>
+            </SignedIn>
+          </motion.div>
         </div>
       </section>
 
