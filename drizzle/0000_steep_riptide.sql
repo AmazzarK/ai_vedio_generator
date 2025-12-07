@@ -1,0 +1,40 @@
+CREATE TABLE "users" (
+	"id" varchar(256) PRIMARY KEY NOT NULL,
+	"name" varchar(256) NOT NULL,
+	"email" varchar(256) NOT NULL,
+	"image_url" varchar(512),
+	"subscription" boolean DEFAULT false NOT NULL,
+	"plan_id" varchar(50) DEFAULT 'free',
+	"plan_type" varchar(20) DEFAULT 'monthly',
+	"paypal_customer_id" varchar(256),
+	"paypal_subscription_id" varchar(256),
+	"subscription_status" varchar(50) DEFAULT 'inactive',
+	"current_period_end" timestamp,
+	"tokens" integer DEFAULT 100 NOT NULL,
+	"credits" integer DEFAULT 0 NOT NULL,
+	"created_at" timestamp DEFAULT now(),
+	CONSTRAINT "users_email_unique" UNIQUE("email")
+);
+--> statement-breakpoint
+CREATE TABLE "videos" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" varchar(256) NOT NULL,
+	"title" varchar(256) NOT NULL,
+	"prompt" varchar(2000) NOT NULL,
+	"platform" varchar(50) NOT NULL,
+	"video_style" varchar(100),
+	"duration" integer,
+	"quality" varchar(20),
+	"video_url" varchar(512),
+	"audio_url" varchar(512),
+	"thumbnail_url" varchar(512),
+	"script_content" varchar(5000),
+	"captions_srt" varchar(10000),
+	"captions_vtt" varchar(10000),
+	"transcript_id" varchar(256),
+	"status" varchar(50) DEFAULT 'processing',
+	"language" varchar(10),
+	"tokens_used" integer DEFAULT 20,
+	"created_at" timestamp DEFAULT now(),
+	"completed_at" timestamp
+);

@@ -106,7 +106,7 @@ export default function AudioGeneratorTest() {
       <button
         onClick={generateAudio}
         disabled={!text || loading}
-        className="w-full py-3 bg-gradient-to-r from-purple-600 to-cyan-500 text-white rounded-lg font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-3 bg-linear-to-r from-purple-600 to-cyan-500 text-white rounded-lg font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? 'Generating...' : 'Generate Audio'}
       </button>

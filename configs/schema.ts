@@ -10,11 +10,15 @@ export const Users = pgTable("users", {
   // Subscription fields
   planId: varchar("plan_id", { length: 50 }).default('free'),
   planType: varchar("plan_type", { length: 20 }).default('monthly'), // 'monthly' or 'yearly'
-  stripeCustomerId: varchar("stripe_customer_id", { length: 256 }),
-  stripeSubscriptionId: varchar("stripe_subscription_id", { length: 256 }),
-  subscriptionStatus: varchar("subscription_status", { length: 50 }).default('inactive'), // 'active', 'canceled', 'past_due', 'inactive'
+  
+  // PayPal fields
+  paypalCustomerId: varchar("paypal_customer_id", { length: 256 }),
+  paypalSubscriptionId: varchar("paypal_subscription_id", { length: 256 }),
+  
+  subscriptionStatus: varchar("subscription_status", { length: 50 }).default('inactive'), // 'active', 'cancelled', 'suspended', 'expired', 'inactive'
   currentPeriodEnd: timestamp("current_period_end"),
   tokens: integer("tokens").notNull().default(100), // Token balance
+  credits: integer("credits").notNull().default(0), // Video generation credits
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -31,6 +35,9 @@ export const Videos = pgTable("videos", {
   audioUrl: varchar("audio_url", { length: 512 }),
   thumbnailUrl: varchar("thumbnail_url", { length: 512 }),
   scriptContent: varchar("script_content", { length: 5000 }),
+  captionsSrt: varchar("captions_srt", { length: 10000 }), // SRT format captions
+  captionsVtt: varchar("captions_vtt", { length: 10000 }), // VTT format captions
+  transcriptId: varchar("transcript_id", { length: 256 }), // AssemblyAI transcript ID
   status: varchar("status", { length: 50 }).default('processing'), // 'processing', 'completed', 'failed'
   language: varchar("language", { length: 10 }),
   tokensUsed: integer("tokens_used").default(20),

@@ -12,10 +12,13 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.35.5",
-    "@google/genai": "^1.30.0",
+    "@google/generative-ai": "^0.24.1",
+    "@huggingface/inference": "^4.13.4",
     "@neondatabase/serverless": "^1.0.2",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@paypal/react-paypal-js": "^8.9.2",
     "@radix-ui/react-slot": "^1.2.4",
-    "@stripe/stripe-js": "^8.5.3",
+    "assemblyai": "^4.19.0",
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.8.0",
     "clsx": "^2.1.1",
@@ -29,7 +32,6 @@
     "next": "16.0.5",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "stripe": "^20.0.0",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -37,7 +39,7 @@
     "@types/node": "^20.19.25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "baseline-browser-mapping": "^2.8.32",
+    "baseline-browser-mapping": "^2.9.4",
     "dotenv-cli": "^11.0.0",
     "drizzle-kit": "^0.31.7",
     "eslint": "^9",

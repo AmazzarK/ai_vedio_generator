@@ -18,6 +18,14 @@ A powerful AI-driven video generation platform with multilingual support, subscr
 - **Auto-Fallback** - gTTS backup if Edge TTS fails
 - **100% FREE** - No API keys required
 
+### 📝 Caption Generation
+- **AssemblyAI Integration** - AI-powered speech-to-text
+- **$50 FREE Credits** - ~185 hours of transcription
+- **99+ Languages** - Including Arabic, English, French
+- **Multiple Formats** - SRT, VTT, JSON captions
+- **Speaker Diarization** - Identify different speakers
+- **Word-Level Timestamps** - Precise caption sync
+
 ### ☁️ Cloud Storage
 - **Cloudinary Integration** - 25 GB free storage
 - **CDN Delivery** - Global content delivery network
@@ -25,9 +33,9 @@ A powerful AI-driven video generation platform with multilingual support, subscr
 - **No Credit Card** - Forever free tier
 
 ### 💳 Payment System
-- **Stripe Integration** - Secure subscription management
-- **3 Pricing Tiers** - Free, Pro ($19/mo), Enterprise ($49/mo)
-- **Token System** - Usage-based billing
+- **PayPal Integration** - Secure subscription management
+- **4 Pricing Tiers** - Pro Monthly/Yearly, Enterprise Monthly/Yearly
+- **Subscription Plans** - Flexible billing options
 - **Webhook Handlers** - Real-time subscription updates
 
 ### 🌍 Multilingual Support
@@ -60,12 +68,13 @@ A powerful AI-driven video generation platform with multilingual support, subscr
 ### Backend
 - **Next.js API Routes** - Serverless functions
 - **Clerk Auth** - Authentication
-- **Stripe** - Payment processing
+- **PayPal** - Payment processing
 - **Drizzle ORM** - Database queries
 
 ### AI & Media
 - **Google Gemini** - AI script generation
 - **Edge TTS** - Text-to-speech
+- **AssemblyAI** - Caption generation
 - **Cloudinary** - Media storage & CDN
 
 ### Database
@@ -105,6 +114,7 @@ Open http://localhost:3000
 | [Neon](https://neon.tech) | Database | 3 min |
 | [Gemini](https://aistudio.google.com) | AI Scripts | 2 min |
 | [Cloudinary](https://cloudinary.com) | Storage (25 GB) | 5 min |
+| [AssemblyAI](https://assemblyai.com) | Captions ($50 credits) | 3 min |
 
 **No credit cards required!** ✅
 
@@ -118,7 +128,7 @@ ai-vedio-generator/
 │   ├── api/                  # API routes
 │   │   ├── generate-audio/   # TTS generation
 │   │   ├── get-vedio-script/ # AI script generation
-│   │   └── stripe/           # Payment webhooks
+│   │   └── paypal/           # Payment webhooks
 │   ├── dashboard/            # Main dashboard
 │   ├── pricing/              # Pricing page
 │   ├── sign-in/              # Auth pages
@@ -131,6 +141,7 @@ ai-vedio-generator/
 │   ├── cloudinary-storage.ts # Cloudinary upload
 │   ├── edge-tts.ts           # Edge TTS
 │   ├── gtts.ts               # Google TTS fallback
+│   ├── paypal.ts             # PayPal SDK
 │   └── text-to-speech.ts     # Main TTS interface
 ├── public/                   # Static files
 │   └── audio/                # Generated audio (temp)
@@ -150,8 +161,9 @@ ai-vedio-generator/
 - Database with Neon + Drizzle
 - Dashboard with multilingual support
 - Text-to-speech with Edge TTS
+- Caption generation with AssemblyAI
 - Cloudinary storage integration
-- Stripe payment system (backend ready)
+- PayPal payment system (backend ready)
 - AI script generation with Gemini
 - Pricing page
 - 90+ video styles configuration

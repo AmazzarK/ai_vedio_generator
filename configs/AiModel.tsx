@@ -1,49 +1,26 @@
 // To run this code you need to install the following dependencies:
-// npm install @google/genai mime
-// npm install -D @types/node
+// npm install @huggingface/inference
 
-import {
-  GoogleGenAI,
-  ThinkingLevel,
-} from '@google/genai';
+import { HfInference } from '@huggingface/inference';
 
 async function main() {
-  const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY,
-  });
-  const tools = [
-    {
-      googleSearch: {
+  const hf = new HfInference(process.env.HUGGINGFACE_API_KEY || '');
+  
+  // Use Meta Llama 3.1 for text generation
+  const response = await hf.chatCompletion({
+    model: "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    messages: [
+      {
+        role: "user",
+        content: `INSERT_INPUT_HERE`
       }
-    },
-  ];
-  const config = {
-    thinkingConfig: {
-      thinkingLevel: 'HIGH' as ThinkingLevel,
-    },
-    tools,
-  };
-  const model = 'gemini-3-pro-preview';
-  const contents = [
-    {
-      role: 'user' as const,
-      parts: [
-        {
-          text: `INSERT_INPUT_HERE`,
-        },
-      ],
-    },
-  ];
-
-  const response = await ai.models.generateContentStream({
-    model,
-    config,
-    contents,
+    ],
+    max_tokens: 500,
+    temperature: 0.7,
   });
-  let fileIndex = 0;
-  for await (const chunk of response) {
-    console.log(chunk.text);
-  }
+  
+  const generatedText = response.choices[0]?.message?.content || '';
+  console.log(generatedText);
 }
 
 main();

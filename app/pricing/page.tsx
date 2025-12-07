@@ -27,7 +27,7 @@ export default function PricingPage() {
     setLoading(planId)
 
     try {
-      const response = await fetch('/api/stripe/checkout', {
+      const response = await fetch('/api/paypal/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ planId, billingCycle }),
@@ -35,10 +35,10 @@ export default function PricingPage() {
 
       const data = await response.json()
 
-      if (data.url) {
-        window.location.href = data.url
+      if (data.approvalUrl) {
+        window.location.href = data.approvalUrl
       } else {
-        alert('Failed to create checkout session')
+        alert('Failed to create subscription')
       }
     } catch (error) {
       console.error('Error:', error)
