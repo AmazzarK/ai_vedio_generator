@@ -165,7 +165,7 @@ export default function Home() {
                   {[1, 2, 3].map((i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full border-2 border-white"
+                      className="w-8 h-8 bg-linear-to-br from-blue-400 to-blue-600 rounded-full border-2 border-white"
                     />
                   ))}
                 </div>
@@ -308,7 +308,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-blue-600 to-blue-700 dark:from-blue-900/40 dark:to-blue-800/40 dark:border dark:border-blue-700 rounded-2xl p-12 md:p-16 text-white dark:text-gray-100"
+          className="bg-linear-to-br from-blue-600 to-blue-700 dark:from-blue-900/40 dark:to-blue-800/40 dark:border dark:border-blue-700 rounded-2xl p-12 md:p-16 text-white dark:text-gray-100"
         >
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h3 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -479,7 +479,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className={`relative rounded-2xl border transition-all ${
                 plan.popular
-                  ? "border-blue-500 bg-gradient-to-br from-blue-50 dark:from-blue-950/30 to-white dark:to-gray-900 shadow-xl dark:shadow-blue-900/20 ring-1 ring-blue-200 dark:ring-blue-800 md:scale-105"
+                  ? "border-blue-500 bg-linear-to-br from-blue-50 dark:from-blue-950/30 to-white dark:to-gray-900 shadow-xl dark:shadow-blue-900/20 ring-1 ring-blue-200 dark:ring-blue-800 md:scale-105"
                   : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-lg dark:hover:shadow-lg"
               }`}
             >
