@@ -1,0 +1,386 @@
+/**
+ * ADDITIONAL UTILITY CLASSES FOR LAYOUT & STYLING
+ * 
+ * Add this to your app/components.css for additional helpers
+ */
+
+/* ===== RESPONSIVE GRID HELPERS ===== */
+
+.grid-1 { @apply grid grid-cols-1; }
+.grid-2 { @apply grid grid-cols-1 sm:grid-cols-2; }
+.grid-3 { @apply grid grid-cols-1 md:grid-cols-3; }
+.grid-4 { @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4; }
+
+.gap-default { @apply gap-6; }
+.gap-tight { @apply gap-3; }
+.gap-loose { @apply gap-8; }
+
+/* ===== TYPOGRAPHY UTILITIES ===== */
+
+.text-display { @apply text-4xl md:text-5xl font-bold text-gray-900 leading-tight; }
+.text-headline { @apply text-3xl font-bold text-gray-900 leading-snug; }
+.text-title { @apply text-xl font-semibold text-gray-900; }
+.text-body { @apply text-base text-gray-700 leading-relaxed; }
+.text-body-small { @apply text-sm text-gray-600 leading-normal; }
+.text-caption { @apply text-xs text-gray-500 uppercase tracking-wider; }
+
+/* Color text utilities */
+.text-muted { @apply text-gray-600; }
+.text-subtle { @apply text-gray-500; }
+.text-error { @apply text-red-600; }
+.text-success { @apply text-green-600; }
+.text-warning { @apply text-yellow-600; }
+
+/* ===== CONTAINER HELPERS ===== */
+
+.container-max { @apply max-w-7xl mx-auto px-6; }
+.container-tight { @apply max-w-4xl mx-auto px-6; }
+.container-wide { @apply max-w-full px-6; }
+
+/* Vertical/Horizontal spacing */
+.section-spacing { @apply py-24 md:py-32; }
+.section-spacing-sm { @apply py-16 md:py-20; }
+
+/* ===== ELEVATION / DEPTH ===== */
+
+.shadow-elevation-1 { @apply shadow-sm; }
+.shadow-elevation-2 { @apply shadow-md; }
+.shadow-elevation-3 { @apply shadow-lg; }
+.shadow-elevation-4 { @apply shadow-xl; }
+
+.hover-shadow { @apply hover:shadow-md transition-shadow; }
+.hover-elevation { @apply hover:shadow-lg transition-shadow; }
+
+/* ===== BORDER HELPERS ===== */
+
+.border-subtle { @apply border border-gray-200; }
+.border-accent { @apply border border-blue-300; }
+.border-prominent { @apply border-2 border-gray-300; }
+
+.rounded-sm { @apply rounded; }
+.rounded-lg { @apply rounded-lg; }
+.rounded-xl { @apply rounded-xl; }
+.rounded-full { @apply rounded-full; }
+
+/* ===== LAYOUT PATTERNS ===== */
+
+/* Flex helpers */
+.flex-center { @apply flex items-center justify-center; }
+.flex-between { @apply flex items-center justify-between; }
+.flex-col-center { @apply flex flex-col items-center justify-center; }
+
+/* Stack with consistent spacing */
+.stack { @apply flex flex-col gap-4; }
+.stack-lg { @apply flex flex-col gap-6; }
+.stack-sm { @apply flex flex-col gap-2; }
+
+/* Sidebar layout */
+.sidebar-layout {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-8;
+}
+
+.sidebar-main {
+  @apply lg:col-span-3;
+}
+
+.sidebar-aside {
+  @apply lg:col-span-1;
+}
+
+/* ===== FOCUS & INTERACTIVE STATES ===== */
+
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.focus-ring-inline {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-0;
+}
+
+.interactive {
+  @apply cursor-pointer transition-colors hover:opacity-80;
+}
+
+/* ===== VISIBILITY UTILITIES ===== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.visually-hidden { @apply sr-only; }
+
+/* ===== ANIMATION HELPERS ===== */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 300ms ease-out;
+}
+
+.animate-fade-out {
+  animation: fade-out 300ms ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 300ms ease-out;
+}
+
+/* ===== LOADING STATE ===== */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeleton {
+  @apply bg-gray-200 animate-pulse-subtle rounded;
+}
+
+.skeleton-text { @apply skeleton h-4 w-32; }
+.skeleton-button { @apply skeleton h-10 w-24; }
+.skeleton-card { @apply skeleton h-48 w-full; }
+
+/* ===== FORM STATE PATTERNS ===== */
+
+.field-disabled {
+  @apply bg-gray-100 text-gray-500 cursor-not-allowed;
+}
+
+.field-error {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+.field-success {
+  @apply border-green-500 focus:ring-green-500;
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+  .no-print { @apply hidden; }
+  
+  .print-only { @apply block; }
+  
+  body { @apply bg-white; }
+}
+
+/* ===== DARK MODE SUPPORT (if needed in future) ===== */
+
+/* Currently not using dark mode, but here's the structure:
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+  }
+  
+  .dark\:bg-dark { @apply bg-gray-900; }
+  .dark\:text-light { @apply text-gray-100; }
+}
+*/
+
+/* ===== ACCESSIBILITY HELPERS ===== */
+
+/* Indicate focus for keyboard navigation */
+.focus-visible {
+  @apply focus:outline-blue-600 focus:outline-2 focus:outline-offset-2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  .border-subtle { @apply border-2; }
+  
+  body { @apply bg-white text-black; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== SPACING SHORTCUTS ===== */
+
+/* Margin helpers */
+.mt-default { @apply mt-6; }
+.mb-default { @apply mb-6; }
+.my-default { @apply my-6; }
+.mx-default { @apply mx-6; }
+
+/* Padding helpers */
+.p-default { @apply p-6; }
+.px-default { @apply px-6; }
+.py-default { @apply py-6; }
+
+/* ===== CONTENT PATTERNS ===== */
+
+/* For centering content */
+.center-content {
+  @apply flex flex-col items-center justify-center;
+}
+
+/* Page header pattern */
+.page-header {
+  @apply mb-12 pb-8 border-b border-gray-200;
+}
+
+/* With icon + text side by side */
+.icon-text {
+  @apply flex items-center gap-3;
+}
+
+/* List with icons */
+.feature-list {
+  @apply space-y-3;
+}
+
+.feature-list li {
+  @apply flex items-start gap-3;
+}
+
+.feature-list svg {
+  @apply w-5 h-5 text-blue-600 mt-0.5 shrink-0;
+}
+
+/* ===== FORM LAYOUTS ===== */
+
+.form-row {
+  @apply grid md:grid-cols-2 gap-6;
+}
+
+.form-full {
+  @apply grid grid-cols-1 gap-6;
+}
+
+/* ===== BUTTON GROUPS ===== */
+
+.button-group {
+  @apply flex flex-col sm:flex-row gap-3;
+}
+
+.button-group-inline {
+  @apply inline-flex gap-3;
+}
+
+/* ===== SECTION DIVIDERS ===== */
+
+.section-divider {
+  @apply border-t border-gray-200;
+}
+
+.section-divider-alt {
+  @apply bg-gray-50;
+}
+
+/* ===== EMPTY STATE PATTERN ===== */
+
+.empty-state {
+  @apply py-16 text-center;
+}
+
+.empty-state-icon {
+  @apply w-16 h-16 mx-auto mb-4 text-gray-300;
+}
+
+.empty-state-title {
+  @apply text-lg font-semibold text-gray-900 mb-2;
+}
+
+.empty-state-text {
+  @apply text-gray-600 mb-6;
+}
+
+/* ===== LOADING OVERLAY ===== */
+
+.overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center;
+}
+
+.overlay-content {
+  @apply bg-white rounded-xl p-8 shadow-2xl max-w-md;
+}
+
+/* ===== TOOLTIP SUPPORT ===== */
+
+.tooltip {
+  @apply relative;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease-out;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+/* ===== BADGES WITH COLORS ===== */
+
+.badge-default { @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700 border border-gray-300; }
+.badge-blue { @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700 border border-blue-300; }
+.badge-green { @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700 border border-green-300; }
+.badge-yellow { @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700 border border-yellow-300; }
+.badge-red { @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700 border border-red-300; }
+
+/* Status indicators */
+.status-active { @apply inline-flex items-center gap-2 text-green-600; }
+.status-active::before { content: ''; @apply w-2 h-2 bg-green-600 rounded-full; }
+
+.status-inactive { @apply inline-flex items-center gap-2 text-gray-400; }
+.status-inactive::before { content: ''; @apply w-2 h-2 bg-gray-400 rounded-full; }
+
+.status-warning { @apply inline-flex items-center gap-2 text-yellow-600; }
+.status-warning::before { content: ''; @apply w-2 h-2 bg-yellow-600 rounded-full; }
+
+.status-error { @apply inline-flex items-center gap-2 text-red-600; }
+.status-error::before { content: ''; @apply w-2 h-2 bg-red-600 rounded-full; }

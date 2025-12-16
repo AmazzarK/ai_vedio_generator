@@ -23,13 +23,16 @@ export interface ImageGenerationResult {
 
 // Available models (all FREE!)
 export const HUGGINGFACE_MODELS = {
+  // FLUX (RECOMMENDED - Fastest free model, excellent quality, perfect for videos)
+  NANO_BANANA: 'black-forest-labs/FLUX.1-schnell',
+  
   // Stable Diffusion XL (Best quality, slower)
   SDXL: 'stabilityai/stable-diffusion-xl-base-1.0',
   
   // Stable Diffusion 2.1 (Fast, good quality)
   SD21: 'stabilityai/stable-diffusion-2-1',
   
-  // Flux (NEW - High quality)
+  // Flux (NEW - High quality, fastest free model)
   FLUX_SCHNELL: 'black-forest-labs/FLUX.1-schnell',
   
   // Realistic Vision (Photorealistic)
@@ -50,11 +53,11 @@ export async function generateImage(
   try {
     const {
       prompt,
-      model = HUGGINGFACE_MODELS.SDXL,
+      model = HUGGINGFACE_MODELS.NANO_BANANA,
       negativePrompt = 'blurry, bad quality, distorted, ugly, low resolution',
-      width = 1024,
-      height = 1024,
-      numInferenceSteps = 50,
+      width = 768,
+      height = 768,
+      numInferenceSteps = 28,
       guidanceScale = 7.5,
     } = options;
 

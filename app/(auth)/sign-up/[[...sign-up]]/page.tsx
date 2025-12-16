@@ -1,106 +1,124 @@
 'use client'
 
 import { SignUp } from '@clerk/nextjs'
-import Image from 'next/image'
+import Link from 'next/link'
 
 export default function SignUpPage() {
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#0a0a0f] via-[#0F0F12] to-[#1a1a24] grid grid-cols-1 md:grid-cols-2 relative overflow-hidden">
-      {/* Sophisticated Background Layer */}
+    <div className="min-h-screen bg-white dark:bg-gray-950 grid grid-cols-1 md:grid-cols-2 relative overflow-hidden">
+      {/* Subtle gradient background */}
       <div className="fixed inset-0 pointer-events-none">
-        {/* Main ambient light */}
-        <div className="absolute top-1/4 right-1/4 w-[800px] h-[800px] bg-[#7C3AED]/20 rounded-full blur-[200px] opacity-40" />
-        <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-[#00E7FF]/15 rounded-full blur-[180px] opacity-30" />
-        
-        {/* Subtle accent lights */}
-        <div className="absolute top-0 left-1/3 w-[300px] h-[300px] bg-[#00E7FF]/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 right-1/3 w-[300px] h-[300px] bg-[#7C3AED]/15 rounded-full blur-[150px]" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100 dark:bg-blue-950/30 rounded-full blur-3xl opacity-10 dark:opacity-20" />
+        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-5 dark:opacity-10" />
       </div>
 
-      {/* Left Side - Image with sophisticated overlay */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Vignette overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-black/40 via-transparent to-black/60 z-10" />
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent z-10" />
-        
-        <Image
-          src="/login.png"
-          alt="AIVideoGen"
-          fill
-          className="object-cover scale-105"
-          priority
-        />
+      {/* Left Side - Content section */}
+      <div className="relative h-screen hidden md:flex flex-col justify-center items-center p-12 bg-gradient-to-br from-blue-50 dark:from-gray-900 to-white dark:to-gray-950">
+        <div className="max-w-md space-y-8 relative z-10">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-lg bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-xl">
+                V
+              </div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">VideoAI</h1>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400 text-lg font-medium">Get started free</p>
+          </div>
+          <div className="space-y-4 pt-4">
+            <div className="space-y-2">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Create Your VideoAI Account</h3>
+              <p className="text-gray-600 dark:text-gray-400">Join thousands of creators generating videos with AI</p>
+            </div>
+          </div>
+          <div className="space-y-3 pt-8">
+            <div className="flex items-start gap-3">
+              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">✓</div>
+              <div>
+                <p className="text-gray-900 dark:text-white font-medium">Free to start</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">100 tokens per month on our free plan</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">✓</div>
+              <div>
+                <p className="text-gray-900 dark:text-white font-medium">No credit card required</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Create an account and start generating videos immediately</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">✓</div>
+              <div>
+                <p className="text-gray-900 dark:text-white font-medium">Upgrade anytime</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Scale up to Pro or Enterprise as your needs grow</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Right Side - Premium Form Container */}
-      <div className="relative flex flex-col justify-center items-center p-8 md:p-12 lg:p-20">
-        {/* Image-inspired gradient background with electric glow */}
-        <div className="absolute inset-0 bg-linear-to-br from-[#06040a] via-[#0d0615] to-[#08050f]" />
-        
-        {/* Electric purple glow effects */}
+      {/* Right Side - Form Container */}
+      <div className="relative flex flex-col justify-center items-center p-8 md:p-12 lg:p-20 bg-white dark:bg-gray-950">
+        {/* Subtle background accents */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#7C3AED] rounded-full blur-[120px] opacity-20 animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-[#00E7FF] rounded-full blur-[100px] opacity-15 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50 dark:opacity-30 -mr-32 -mt-32" />
         </div>
         
-        {/* Minimal noise texture */}
-        <div className="absolute inset-0 opacity-[0.015]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(124, 58, 237, 0.15) 1px, transparent 0)`,
-            backgroundSize: '48px 48px'
-          }} />
-        </div>
-        
-        <div className="w-full max-w-[440px] relative z-10">
-          {/* Clerk Sign Up Component with refined styling */}
+        <div className="w-full max-w-md relative z-10">
+          <Link href="/" className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-lg bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold">
+              V
+            </div>
+            <span className="text-xl font-bold text-gray-900 dark:text-white">VideoAI</span>
+          </Link>
+          {/* Clerk Sign Up Component with light theme styling */}
           <SignUp
             appearance={{
               elements: {
                 rootBox: 'w-full',
-                card: 'bg-[#1e1433]/40 backdrop-blur-xl shadow-[0_8px_40px_rgba(124,58,237,0.15)] border border-[#7C3AED]/20 rounded-3xl p-8',
+                card: 'bg-white dark:bg-gray-900 shadow-none border-none rounded-2xl p-0',
                 
                 // Header
-                headerTitle: 'text-white text-3xl font-bold tracking-tight mb-2',
-                headerSubtitle: 'text-gray-400/90 text-base font-normal',
+                headerTitle: 'text-gray-900 dark:text-white text-2xl font-bold tracking-tight mb-1',
+                headerSubtitle: 'text-gray-600 dark:text-gray-400 text-sm font-normal mb-6',
                 
                 // Social buttons
                 socialButtonsBlockButton:
-                  'bg-[#1a1625]/80 border border-[#7C3AED]/30 hover:bg-[#1a1625] hover:border-[#7C3AED]/60 hover:shadow-lg hover:shadow-[#7C3AED]/20 text-white transition-all duration-200 rounded-xl h-12 font-medium text-[15px]',
-                socialButtonsBlockButtonText: 'text-white/90 font-medium',
-                socialButtonsBlockButtonArrow: 'text-gray-500',
+                  'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 text-gray-900 dark:text-white transition-all duration-200 rounded-lg h-11 font-medium text-sm',
+                socialButtonsBlockButtonText: 'text-gray-900 dark:text-white font-medium',
+                socialButtonsBlockButtonArrow: 'text-gray-400 dark:text-gray-500',
                 
                 // Primary button
                 formButtonPrimary:
-                  'bg-gradient-to-r from-[#5a2a9e] via-[#7C3AED] to-[#9D4EDD] hover:from-[#6b3bb3] hover:via-[#8b4afe] hover:to-[#b062ff] shadow-lg shadow-[#7C3AED]/30 hover:shadow-xl hover:shadow-[#7C3AED]/50 transition-all duration-200 rounded-xl h-12 text-white font-semibold text-[15px]',
+                  'bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 shadow-lg shadow-blue-500/20 dark:shadow-blue-900/30 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-blue-900/50 transition-all duration-200 rounded-lg h-11 text-white font-semibold text-sm',
                 
                 // Input fields
                 formFieldInput:
-                  'bg-[#1a1625]/80 border border-[#7C3AED]/30 text-white placeholder:text-gray-500 focus:bg-[#1a1625] focus:border-[#7C3AED]/60 focus:ring-2 focus:ring-[#7C3AED]/20 focus:shadow-lg focus:shadow-[#7C3AED]/10 rounded-xl h-12 px-4 transition-all duration-200 text-[15px]',
-                formFieldLabel: 'text-gray-300 font-medium text-sm mb-2',
+                  'bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:bg-white dark:focus:bg-gray-800 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500/10 dark:focus:ring-blue-500/20 rounded-lg h-11 px-4 transition-all duration-200 text-sm',
+                formFieldLabel: 'text-gray-700 dark:text-gray-300 font-medium text-sm mb-2',
                 
                 // Footer links
-                footerActionLink: 'text-[#7C3AED] hover:text-[#00E7FF] transition-colors font-medium text-sm',
-                footerActionText: 'text-gray-400 text-sm',
+                footerActionLink: 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium text-sm',
+                footerActionText: 'text-gray-600 dark:text-gray-400 text-sm',
                 
                 // Other elements
-                identityPreviewText: 'text-white text-sm',
-                identityPreviewEditButton: 'text-[#7C3AED] hover:text-[#00E7FF] text-sm',
-                formFieldInputShowPasswordButton: 'text-gray-400 hover:text-white transition-colors',
+                identityPreviewText: 'text-gray-900 dark:text-white text-sm',
+                identityPreviewEditButton: 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm',
+                formFieldInputShowPasswordButton: 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition-colors',
                 
                 // Divider
-                dividerLine: 'bg-[#7C3AED]/20',
-                dividerText: 'text-gray-500 text-xs uppercase tracking-wider font-medium',
+                dividerLine: 'bg-gray-200 dark:bg-gray-800',
+                dividerText: 'text-gray-500 dark:text-gray-500 text-xs uppercase tracking-wider font-medium',
                 
                 // Additional refinements
-                formHeaderTitle: 'text-white font-semibold text-lg',
-                formHeaderSubtitle: 'text-gray-400 text-sm',
-                otpCodeFieldInput: 'bg-[#1a1625]/60 border-[#7C3AED]/20 text-white focus:border-[#7C3AED]/50 rounded-lg h-12',
-                formResendCodeLink: 'text-[#7C3AED] hover:text-[#00E7FF] font-medium text-sm',
-                identityPreviewEditButtonIcon: 'text-[#7C3AED]',
+                formHeaderTitle: 'text-gray-900 dark:text-white font-semibold text-lg',
+                formHeaderSubtitle: 'text-gray-600 dark:text-gray-400 text-sm',
+                otpCodeFieldInput: 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-500 rounded-lg h-11',
+                formResendCodeLink: 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm',
+                identityPreviewEditButtonIcon: 'text-blue-600 dark:text-blue-400',
                 
                 // Alert styling
-                alert: 'bg-red-500/10 border border-red-500/20 text-red-200 rounded-xl',
-                alertText: 'text-red-200 text-sm',
+                alert: 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-900 dark:text-red-400 rounded-lg',
+                alertText: 'text-red-900 dark:text-red-400 text-sm',
               },
             }}
           />

@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { generateCompleteVideo } from '@/lib/complete-video-workflow';
+import { checkRateLimit } from '@/lib/rate-limiter';
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,6 +11,23 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
+      );
+    }
+
+    // Check rate limit (5 videos per minute per user)
+    const rateLimitCheck = checkRateLimit(userId, {
+      maxRequests: 5,
+      windowMs: 60 * 1000,
+    });
+
+    if (!rateLimitCheck.isAllowed) {
+      console.warn(`⚠️ Rate limit exceeded for user: ${userId}`);
+      return NextResponse.json(
+        {
+          error: 'Too many requests. Please wait before generating another video.',
+          retryAfter: rateLimitCheck.retryAfter,
+        },
+        { status: 429 }
       );
     }
 

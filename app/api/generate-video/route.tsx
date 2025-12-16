@@ -1,6 +1,10 @@
-﻿import { HfInference } from '@huggingface/inference';
+import { HfInference } from '@huggingface/inference';
 import { NextResponse } from 'next/server';
 
+/**
+ * @deprecated Use /api/generate-video instead
+ * This route is kept for backward compatibility
+ */
 export async function POST(req: Request) {
   try {
     // Validate API key
