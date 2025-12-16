@@ -13,7 +13,7 @@ export default function SignUpPage() {
       </div>
 
       {/* Left Side - Content section */}
-      <div className="relative h-screen hidden md:flex flex-col justify-center items-center p-12 bg-gradient-to-br from-blue-50 dark:from-gray-900 to-white dark:to-gray-950">
+      <div className="relative h-screen hidden md:flex flex-col justify-center items-center p-12 bg-linear-to-br from-blue-50 dark:from-gray-900 to-white dark:to-gray-950">
         <div className="max-w-md space-y-8 relative z-10">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -32,21 +32,21 @@ export default function SignUpPage() {
           </div>
           <div className="space-y-3 pt-8">
             <div className="flex items-start gap-3">
-              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">✓</div>
+              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 shrink-0">✓</div>
               <div>
                 <p className="text-gray-900 dark:text-white font-medium">Free to start</p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">100 tokens per month on our free plan</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">✓</div>
+              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 shrink-0">✓</div>
               <div>
                 <p className="text-gray-900 dark:text-white font-medium">No credit card required</p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">Create an account and start generating videos immediately</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">✓</div>
+              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xs font-bold mt-1 shrink-0">✓</div>
               <div>
                 <p className="text-gray-900 dark:text-white font-medium">Upgrade anytime</p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">Scale up to Pro or Enterprise as your needs grow</p>

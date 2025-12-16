@@ -284,7 +284,7 @@ export default function Dashboard() {
 
         {/* Tokens Display */}
         <div className="p-4 border-b border-gray-200 dark:border-gray-800">
-          <div className="bg-gradient-to-br from-blue-50 dark:from-blue-900/20 to-blue-100/50 dark:to-blue-800/10 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+          <div className="bg-linear-to-br from-blue-50 dark:from-blue-900/20 to-blue-100/50 dark:to-blue-800/10 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
                 <Coins className="w-5 h-5 text-blue-600 dark:text-blue-400" />
@@ -322,7 +322,7 @@ export default function Dashboard() {
           })}
 
           {/* Premium Upgrade Button */}
-          <Link href="/pricing" className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 dark:from-blue-500 to-blue-700 dark:to-blue-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-blue-700 dark:hover:from-blue-600 hover:to-blue-800 dark:hover:to-blue-700 transition-all">
+          <Link href="/pricing" className="w-full mt-4 px-4 py-3 bg-linear-to-r from-blue-600 dark:from-blue-500 to-blue-700 dark:to-blue-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-blue-700 dark:hover:from-blue-600 hover:to-blue-800 dark:hover:to-blue-700 transition-all">
             <Crown className="w-5 h-5" />
             Upgrade to Pro
           </Link>

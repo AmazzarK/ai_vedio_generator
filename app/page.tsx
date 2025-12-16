@@ -181,7 +181,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative h-96 md:h-full min-h-96 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-300 flex flex-col overflow-hidden shadow-lg"
+            className="relative h-96 md:h-full min-h-96 bg-linear-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-300 flex flex-col overflow-hidden shadow-lg"
           >
             {/* Video background simulation */}
             <div className="absolute inset-0 bg-black opacity-20" />
@@ -515,7 +515,7 @@ export default function Home() {
                 <div className="space-y-4">
                   {plan.features.map((feature, fidx) => (
                     <div key={fidx} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       <span className="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
