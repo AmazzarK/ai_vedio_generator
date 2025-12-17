@@ -100,10 +100,7 @@ function Provider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  if (!mounted) {
-    return <>{children}</>
-  }
-
+  // Always render children - theme is managed at the document level, not via context
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
