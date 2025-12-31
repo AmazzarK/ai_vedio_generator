@@ -35,7 +35,12 @@ function Provider({ children }: { children: React.ReactNode }) {
     const initialTheme = savedTheme || systemTheme
     
     setTheme(initialTheme)
-    document.documentElement.classList.toggle('dark', initialTheme === 'dark')
+    // Properly add or remove the dark class
+    if (initialTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
     setMounted(true)
   }, [])
 
@@ -49,7 +54,12 @@ function Provider({ children }: { children: React.ReactNode }) {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(newTheme)
     localStorage.setItem('theme', newTheme)
-    document.documentElement.classList.toggle('dark', newTheme === 'dark')
+    // Properly add or remove the dark class
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
   }
 
   const isNewUser = async () => {

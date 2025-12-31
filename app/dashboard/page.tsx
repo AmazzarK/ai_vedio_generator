@@ -65,16 +65,34 @@ export default function Dashboard() {
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     const initialTheme = savedTheme || systemTheme
     setTheme(initialTheme)
-    // Apply theme to HTML element
-    document.documentElement.classList.toggle('dark', initialTheme === 'dark')
     setMounted(true)
   }, [])
 
+  // Apply theme to DOM whenever theme changes
+  useEffect(() => {
+    if (mounted) {
+      console.log('🎨 Applying theme to DOM:', theme)
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark')
+        console.log('➕ Added dark class. HTML classList:', Array.from(document.documentElement.classList))
+      } else {
+        document.documentElement.classList.remove('dark')
+        console.log('➖ Removed dark class. HTML classList:', Array.from(document.documentElement.classList))
+      }
+      console.log('🔍 Computed BG color:', window.getComputedStyle(document.documentElement).backgroundColor)
+    }
+  }, [theme, mounted])
+
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
-    document.documentElement.classList.toggle('dark', newTheme === 'dark')
+    console.log('🎯 Toggle button clicked!')
+    console.log('📊 Current state:', { theme, mounted })
+    setTheme(prev => {
+      const newTheme = prev === 'light' ? 'dark' : 'light'
+      console.log('✅ State update:', prev, '→', newTheme)
+      localStorage.setItem('theme', newTheme)
+      console.log('💾 localStorage updated:', localStorage.getItem('theme'))
+      return newTheme
+    })
   }
 
   if (!mounted) {
@@ -362,9 +380,9 @@ export default function Dashboard() {
                 aria-label="Toggle theme"
               >
                 {theme === 'light' ? (
-                  <Moon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  <Moon className="w-5 h-5 text-gray-600" />
                 ) : (
-                  <Sun className="w-5 h-5 text-gray-400" />
+                  <Sun className="w-5 h-5 text-yellow-400" />
                 )}
               </button>
 
